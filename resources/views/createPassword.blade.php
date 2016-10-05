@@ -75,7 +75,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Developer's Best Friend!
+                    Password Create!
                 </div>
 
                 <div class="links">

@@ -75,7 +75,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Developer's Best Friend!
+                    Developer's Best Friend Home!
                 </div>
 
                 <div class="links">
