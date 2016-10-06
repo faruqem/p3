@@ -33,3 +33,6 @@ Route::post('/password', 'PasswordController@create')->name('passwords.create');
 //Permission generator page
 Route::get('/permission', 'PermissionController@index')->name('permissions.index');
 Route::post('/permission', 'PermissionController@create')->name('permissions.create');
+
+//Contact page
+Route::get('/contact', 'ContactController@index')->name('contacts.index');
