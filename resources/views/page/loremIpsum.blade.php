@@ -14,7 +14,7 @@ such as a page specific stylesheets.
 @endsection
 
 @section('content')
-<!-- Begin page content -->
+<!--Begin page content-->
     <div class="container">
       <div class="page-header">
         <h1>Lorem Ipsum Generator</h1>
