@@ -35,3 +35,7 @@ body > .container {
 code {
     font-size: 80%;
 }
+
+header{
+    padding-bottom: 50px;
+}
