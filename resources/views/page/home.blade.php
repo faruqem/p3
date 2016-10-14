@@ -20,25 +20,25 @@ such as a page specific stylesheets.
         <h1>Lorem Ipsum Generator</h1>
       </div>
       <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Go to <a href="/loremipsum">Lorem Ipsum Generator</a>.</p>
+      <p>Go to <a href="/lorem-ipsum">Lorem Ipsum Generator</a>.</p>
 
       <div class="page-header">
         <h1>Random Users Generator</h1>
       </div>
       <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Go to <a href="/user">Random Users Generator</a>.</p>
+      <p>Go to <a href="/random-user">Random Users Generator</a>.</p>
 
       <div class="page-header">
         <h1>Random Password Generatorr</h1>
       </div>
       <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Go to <a href="/password">Random Password Generator</a>.</p>
+      <p>Go to <a href="/random-password">Random Password Generator</a>.</p>
 
       <div class="page-header">
         <h1>Permissions Calculator</h1>
       </div>
       <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Go to <a href="/permission">Permissions Calculator</a>.</p>
+      <p>Go to <a href="/permission-calculator">Permissions Calculator</a>.</p>
     </div>
 @endsection
 

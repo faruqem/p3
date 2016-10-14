@@ -15,17 +15,21 @@
 Route::get('/', 'PageController@home')->name('page.home');
 
 //Lorem Ipsum text generator page
-Route::get('/loremipsum', 'PageController@loremipsum')->name('page.loremipsum');
+Route::get('/lorem-ipsum', 'PageController@loremIpsum')->name('page.loremIpsum');
+Route::post('/lorem-ipsum', 'PageController@loremIpsum')->name('page.loremIpsum');
 
 //Random users generator page
-Route::get('/user', 'PageController@user')->name('page.user');
+Route::get('/random-user', 'PageController@randomUser')->name('page.randomUserr');
+Route::post('/randon-user', 'PageController@randomUser')->name('page.randomUser');
 
 //Random xkcd style password generator page
 //Route::get('/password', 'PageController@password')->name('page.password');
-Route::get('/password', 'PageController@password')->name('page.password');
+Route::get('/random-password', 'PageController@randomPassword')->name('page.randomPassword');
+Route::post('/random-password', 'PageController@randomPassword')->name('page.randomPassword');
 
 //Permission generator page
-Route::get('/permission', 'PageController@permission')->name('page.permission');
+Route::get('/permission-calculator', 'PageController@permissionCalculator')->name('page.permissionCalculator');
+Route::post('/permission-calculator', 'PageController@permissionCalculator')->name('page.permissionCalculator');
 
 //Contact page
 Route::get('/contact', 'PageController@contact')->name('page.contact');

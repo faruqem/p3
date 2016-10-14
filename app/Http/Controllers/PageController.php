@@ -13,24 +13,24 @@ class PageController extends Controller
        return view('page.home');
     }
 
-    public function loremipsum()
+    public function loremIpsum()
     {
-       return view('page.loremipsum');
+       return view('page.loremIpsum');
     }
 
-    public function user()
+    public function randomUser()
     {
-       return view('page.user');
+       return view('page.randomUser');
     }
 
-    public function password()
+    public function randomPassword()
     {
-       return view('page.password');
+       return view('page.randomPassword');
     }
 
-    public function permission()
+    public function permissionCalculator()
     {
-       return view('page.permission');
+       return view('page.permissionCalculator');
     }
 
     public function contact()
