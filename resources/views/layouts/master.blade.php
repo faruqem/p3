@@ -39,7 +39,7 @@
                         <li><a href="/random-user">Random Users Generator</a></li>
                         <li role="separator" class="divider"></li>
                         <li class="dropdown-header">Extra</li>
-                        <li><a href="/random-password">Password Generator</a></li>
+                        <li><a href="/random-password">Random Password Generator</a></li>
                         <li><a href="/permission-calculator">Permissions Calculator</a></li>
                       </ul>
                     </li>

@@ -16,10 +16,10 @@ Route::get('/', 'PageController@home')->name('page.home');
 
 //Lorem Ipsum text generator page
 Route::get('/lorem-ipsum', 'PageController@loremIpsum')->name('page.loremIpsum');
-Route::post('/lorem-ipsum', 'PageController@loremIpsum')->name('page.loremIpsum');
+Route::post('/lorem-ipsum', 'PageController@loremIpsumPost')->name('page.loremIpsumPost');
 
 //Random users generator page
-Route::get('/random-user', 'PageController@randomUser')->name('page.randomUserr');
+Route::get('/random-user', 'PageController@randomUser')->name('page.randomUser');
 Route::post('/randon-user', 'PageController@randomUser')->name('page.randomUser');
 
 //Random xkcd style password generator page
