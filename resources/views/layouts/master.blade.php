@@ -9,8 +9,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet">
         <link href="css/app.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/journal/bootstrap.min.css" rel="stylesheet">
         <link href="css/p3.css" rel="stylesheet">
         {{-- Yield any page specific CSS files or anything else you might want in the <head> --}}
         @yield('head')
@@ -58,7 +59,7 @@
 
         <footer class="footer">
           <div class="container">
-            <p class="text-muted">&copy;Mo Faruqe 2016</p>
+            <p class="footer-text">&copy;Mo Faruqe 2016</p>
           </div>
         </footer>
 
@@ -66,7 +67,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <!-- Latest compiled and minified JavaScript -->
         <script src="js/app.js"></script>
-
+        <script src="js/utility.js"></script>
+        <script src="js/dev_tools.js"></script>
         {{-- Yield any page specific JS files or anything else you might want at the end of the body --}}
         @yield('body')
     </body>

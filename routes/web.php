@@ -25,7 +25,7 @@ Route::post('/randon-user', 'PageController@randomUser')->name('page.randomUser'
 //Random xkcd style password generator page
 //Route::get('/password', 'PageController@password')->name('page.password');
 Route::get('/random-password', 'PageController@randomPassword')->name('page.randomPassword');
-Route::post('/random-password', 'PageController@randomPassword')->name('page.randomPassword');
+Route::post('/random-password', 'PageController@randomPasswordPost')->name('page.randomPasswordPost');
 
 //Permission generator page
 Route::get('/permission-calculator', 'PageController@permissionCalculator')->name('page.permissionCalculator');

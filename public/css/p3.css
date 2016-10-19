@@ -14,9 +14,13 @@ body {
     width: 100%;
     /* Set the fixed height of the footer here */
     height: 60px;
-    background-color: #000000;; /*#f5f5f5;*/
+    background-color: #eb6864; /*#f5f5f5;*/
+    color: #ffffff;
 }
 
+.footer-text {
+    margin: 20px 0;
+}
 
 /* Bootstrap custom page CSS
 -------------------------------------------------- */
@@ -36,8 +40,10 @@ code {
     font-size: 80%;
 }
 
+/* Gap from the top menu
+----------------------------------*/
 header{
-    padding-bottom: 50px;
+    padding-bottom: 80px;
 }
 
 /*
