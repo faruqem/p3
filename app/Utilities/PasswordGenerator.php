@@ -2,20 +2,48 @@
 namespace App\Utilities;
 
 class PasswordGenerator {
+    private $wordFileName;
 
-    private $wordFileName = '../storage/app/faruqe/words.json';
-    private $totWords = 2;
-    private $wordCase = 'camel';
-    private $totNumbers = 1;
-    private $totSpChars = 1;
-    private $useSeparator = '';
+    private $totWords;
+    private $wordCase;
+    private $totNumbers;
+    private $totSpChars;
+    private $useSeparator;
 
-    public function __construct ($totWords, $wordCase, $totNumbers, $totSpChars, $useSeparator) {
-        $this->totWords = $totWords;
-        $this->wordCase = $wordCase;
-        $this->totNumbers = $totNumbers;
-        $this->totSpChars = $totSpChars;
-        $this->useSeparator = $useSeparator;
+    public function __construct ($totWordsPar, $totSpCharsPar, $totNumbersPar, $useSeparatorPar, $wordCasePar) {
+        if(isset($totWordsPar)){
+            $this->totWords = $totWordsPar;
+        } else {
+            $this->totWords = 2;
+        }
+
+        if(isset($totSpCharsPar)){
+            $this->totSpChars = $totSpCharsPar;
+        } else {
+            $this->totSpChars = 0;
+        }
+
+        if(isset($totNumbersPar)){
+            $this->totNumbers = $totNumbersPar;
+        } else {
+            $this->totNumbers = 0;
+        }
+
+        if(isset($useSeparatorPar)){
+            $this->useSeparator = $useSeparatorPar;
+        } else {
+            $this->useSeparator = '-';
+        }
+
+        if(isset($wordCasePar)){
+            $this->wordCase = $wordCasePar;
+        } else {
+            $this->wordCase = 'camel';
+        }
+    }
+
+    public function setWordFileName($wordFileNamePar) {
+        $this->wordFileName = $wordFileNamePar;
     }
 
     public function generatePassword(){
@@ -25,6 +53,10 @@ class PasswordGenerator {
             to grab words from Paul's website, create a new file
             and save the words there in JSON format.
         -----------------------------------------------------------------------*/
+        /*if(!isset($this->wordFileName)){
+            $this->wordFileName = '../storage/app/faruqe/words.json';
+        }*/
+
         $wordFile = $this->wordFileName; //Initialize a varibale with words' file folder address
 
         if (!file_exists($wordFile)) {

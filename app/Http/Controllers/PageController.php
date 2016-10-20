@@ -62,14 +62,29 @@ class PageController extends Controller
 
     public function randomPasswordPost(Request $request)
     {
-        $totWords = $request->input('tot-words');
-        $wordCase = $request->input('word-case');
-        $totNumbers = $request->input('tot-numbers');
-        $totSpChars = $request->input('tot-sp-chars');
-        $useSeparator = $request->input('use-separator');
+        # Validate
+        $this->validate($request, [
+            #'totalPara' => 'required|min:3|alpha_num',
+            'tot-words' => 'required|numeric|min:2|max:6',
+            'tot-sp-chars' => 'required|numeric|min:0|max:4',
+            'tot-numbers' => 'required|numeric|min:0|max:4',
+            'use-separator' => 'required',
+            'word-case' => 'required|alpha'
+        ]);
 
-        $passGen = new PasswordGenerator($totWords, $wordCase, $totNumbers, $totSpChars, $useSeparator);
+        #Retrieve form values
+        $totWords = $request->input('tot-words');
+        $totSpChars = $request->input('tot-sp-chars');
+        $totNumbers = $request->input('tot-numbers');
+        $useSeparator = $request->input('use-separator');
+        $wordCase = $request->input('word-case');
+
+        #Instantiate and call appropriate class instance to generate the password
+        $passGen = new PasswordGenerator($totWords, $totSpChars, $totNumbers, $useSeparator, $wordCase);
+        $passGen->setWordFileName('../storage/app/faruqe/words.json');
         $password = $passGen->generatePassword();
+
+        #Return the password
         return \Redirect::to('/random-password')->with('password',$password);
     }
 
