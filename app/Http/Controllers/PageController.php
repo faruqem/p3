@@ -55,6 +55,11 @@ class PageController extends Controller
         return view('page.randomUser');
     }
 
+    public function randomUserPost(Request $request)
+    {
+        return view('page.randomUser');
+    }
+
     public function randomPassword()
     {
         return view('page.randomPassword');

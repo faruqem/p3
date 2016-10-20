@@ -1,8 +1,6 @@
 @extends('layouts.master')
 
-@section('title')
-Random Users Generator
-@endsection
+@section('title','Random Users Generator')
 
 {{--
     This `head` section will be yielded right before the closing </head> tag.
@@ -15,12 +13,53 @@ Random Users Generator
 
 @section('content')
 <!-- Begin page content -->
-<div class="container">
-    <div class="page-header">
-        <h2>Random Users Generator</h2>
+    <div class="container">
+        <h2>Random Users Generator</h1><hr>
+        <div class="row">
+            <div class="col-md-12">
+                <form class="form-horizontal" action="/random-user" method="POST">
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <label>Total Users (1 to 99): <input type="text" name="totalUser" value="{{ old('totalUser') }}" id="totalUser"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <label><input type="checkbox" name="dob" value="{{ old('dob') }}" id="dob"> Date of Birth</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <label><input type="checkbox" name="location" value="{{ old('locationr') }}" id="location"> Location</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <label><input type="checkbox" name="profile" value="{{ old('profile') }}" id="profile"> Profile</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-default">Generate Users</button>
+                        </div>
+                    </div>
+                    @if(count($errors) > 0)
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
+                    <hr>
+                    @if(session('password'))
+                            <h3><strong>Random Users: </strong><span class="lead">{{session('password')}}</span></h3>
+                        <br>
+                    @endif
+                </form>
+            </div>
+        </div>
     </div>
-    <br><br>
-</div>
 @endsection
 
 

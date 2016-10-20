@@ -20,7 +20,7 @@ Route::post('/lorem-ipsum', 'PageController@loremIpsumPost')->name('page.loremIp
 
 //Random users generator page
 Route::get('/random-user', 'PageController@randomUser')->name('page.randomUser');
-Route::post('/randon-user', 'PageController@randomUser')->name('page.randomUser');
+Route::post('/random-user', 'PageController@randomUserPost')->name('page.randomUserPost');
 
 //Random xkcd style password generator page
 //Route::get('/password', 'PageController@password')->name('page.password');
