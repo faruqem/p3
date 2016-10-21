@@ -72,6 +72,8 @@ class PasswordGenerator {
         if (file_exists($wordFile)) { //Double checking if the file exists
             $jsondata = file_get_contents($wordFile);
             $allWords = json_decode($jsondata,true);
+        } else {
+            return "Sorry, we could not generate the password this time!";
         }
 
         #Randomly select the no of words user have asked for and save them into useWords[] array

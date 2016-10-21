@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Utilities\PasswordGenerator;
+use App\Utilities\UserGenerator;
 
 
 class PageController extends Controller
@@ -57,7 +58,28 @@ class PageController extends Controller
 
     public function randomUserPost(Request $request)
     {
-        return view('page.randomUser');
+        #Validate
+        $this->validate($request, [
+            'totalUser' => 'required|numeric|min:1|max:99',
+            'dob' => 'boolean',
+            'location' => 'boolean',
+            'profile' => 'boolean'
+        ]);
+
+        #Retrieve form values
+        $totalUser = $request->input('totalUser');
+        $dob = $request->input('dob');
+        $location = $request->input('location');
+        $profile = $request->input('profile');
+
+        $userGen = new UserGenerator($totalUser,$dob,$location,$profile);
+        $userGen->setUserFileName('../storage/app/faruqe/names.json');
+        $userGen->setLocationFileName('../storage/app/faruqe/locations.json');
+        $userGen->setProfileFileName('../storage/app/faruqe/quotes.json');
+
+        $users = $userGen->generateUsers();
+        return \Redirect::to('/random-user')->with('users',serialize($users));
+        //return view('page.randomUser');
     }
 
     public function randomPassword()

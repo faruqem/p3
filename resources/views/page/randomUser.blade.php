@@ -19,28 +19,29 @@
             <div class="col-md-12">
                 <form class="form-horizontal" action="/random-user" method="POST">
                     {{ csrf_field() }}
-                    <div class="form-group">
-                        <div class="col-sm-10">
-                            <label>Total Users (1 to 99): <input type="text" name="totalUser" value="{{ old('totalUser') }}" id="totalUser"></label>
-                        </div>
+                    <div class="form-group row">
+                          <label for="totalUser" class="col-sm-2 col-form-label">Total Users (1 to 99):</label>
+                          <div class="col-sm-10">
+                            <input class="form-control" type="text" name="totalUser" value="{{ old('totalUser') }}" id="totalUser">
+                          </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-sm-10">
+                        <div class="col-sm-offset-2 col-sm-10">
                             <label><input type="checkbox" name="dob" value="{{ old('dob') }}" id="dob"> Date of Birth</label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-sm-10">
-                            <label><input type="checkbox" name="location" value="{{ old('locationr') }}" id="location"> Location</label>
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <label><input type="checkbox" name="location" value="{{ old('location') }}" id="location"> Location</label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-sm-10">
+                        <div class="col-sm-offset-2 col-sm-10">
                             <label><input type="checkbox" name="profile" value="{{ old('profile') }}" id="profile"> Profile</label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-sm-10">
+                        <div class="col-sm-offset-2 col-sm-10">
                             <button type="submit" class="btn btn-default">Generate Users</button>
                         </div>
                     </div>
@@ -52,8 +53,10 @@
                         </ul>
                     @endif
                     <hr>
-                    @if(session('password'))
-                            <h3><strong>Random Users: </strong><span class="lead">{{session('password')}}</span></h3>
+                    @if(session('users'))
+                        @foreach(unserialize(session('users')) as $user)
+                            <p>{{$user}}</p>
+                        @endforeach
                         <br>
                     @endif
                 </form>
