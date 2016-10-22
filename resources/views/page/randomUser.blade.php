@@ -20,24 +20,24 @@
                 <form class="form-horizontal" action="/random-user" method="POST">
                     {{ csrf_field() }}
                     <div class="form-group row">
-                          <label for="totalUser" class="col-sm-2 col-form-label">Total Users (1 to 99):</label>
+                          <label for="totalUser" class="col-sm-2 col-form-label">Total Users (1 to 75):</label>
                           <div class="col-sm-10">
-                            <input class="form-control" type="text" name="totalUser" value="{{ old('totalUser') }}" id="totalUser">
+                            <input class="form-control" type="text" name="totalUser" value="{{ old('totalUser') }}">
                           </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <label><input type="checkbox" name="dob" value="{{ old('dob') }}" id="dob"> Date of Birth</label>
+                            <label><input type="checkbox" name="dob" value="{{ old('dob') }}"> Date of Birth</label>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <label><input type="checkbox" name="location" value="{{ old('location') }}" id="location"> Location</label>
+                            <label><input type="checkbox" name="location" value="{{ old('location') }}"> Location</label>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <label><input type="checkbox" name="profile" value="{{ old('profile') }}" id="profile"> Profile</label>
+                            <label><input type="checkbox" name="profile" value="{{ old('profile') }}"> Profile</label>
                         </div>
                     </div>
                     <div class="form-group">
@@ -53,9 +53,16 @@
                         </ul>
                     @endif
                     <hr>
+
                     @if(session('users'))
+                        <h4>Generated Users:</h4>
                         @foreach(unserialize(session('users')) as $user)
-                            <p>{{$user}}</p>
+                                <p>Name: {{$user[0]}}
+                                    @if(session('isDOB'))<br>DOB: {{$user[1]}}@endif
+                                    @if(session('isLocation'))<br>Location: {{$user[2]}}@endif
+                                    @if(session('isProfile'))<br>Profile: {{$user[3]}}@endif
+                                </p>
+                                <br>
                         @endforeach
                         <br>
                     @endif

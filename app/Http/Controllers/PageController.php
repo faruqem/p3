@@ -60,7 +60,7 @@ class PageController extends Controller
     {
         #Validate
         $this->validate($request, [
-            'totalUser' => 'required|numeric|min:1|max:99',
+            'totalUser' => 'required|numeric|min:1|max:75',
             'dob' => 'boolean',
             'location' => 'boolean',
             'profile' => 'boolean'
@@ -68,17 +68,20 @@ class PageController extends Controller
 
         #Retrieve form values
         $totalUser = $request->input('totalUser');
-        $dob = $request->input('dob');
-        $location = $request->input('location');
-        $profile = $request->input('profile');
+        $dob = ($request->input("dob") === "" ? true : false);
+        $location = ($request->input('location') === "" ? true : false);
+        $profile = ($request->input('profile') === "" ? true : false);
 
         $userGen = new UserGenerator($totalUser,$dob,$location,$profile);
         $userGen->setUserFileName('../storage/app/faruqe/names.json');
         $userGen->setLocationFileName('../storage/app/faruqe/locations.json');
         $userGen->setProfileFileName('../storage/app/faruqe/quotes.json');
 
+
         $users = $userGen->generateUsers();
-        return \Redirect::to('/random-user')->with('users',serialize($users));
+        //$users = [["Mo Faruqe","Toronto"],["Ru Haque","NYC"]];
+        //dd($users);
+        return \Redirect::to('/random-user')->with(['users'=>serialize($users), 'isDOB'=>$dob, 'isLocation'=>$location, 'isProfile'=>$profile]);
         //return view('page.randomUser');
     }
 

@@ -46,30 +46,44 @@ class UserGenerator {
         $this->locationFileName = $locationFileNamePar;
     }
 
-    public function setProfileFileName($userProfileNamePar) {
-        $this->userProfileName = $userProfileNamePar;
+    public function setProfileFileName($profileFileNamePar) {
+        $this->profileFileName = $profileFileNamePar;
     }
 
-    public function generateUsers(){
-        $userFile = $this->userFileName;
-        if (file_exists($userFile)) { //Double checking if the file exists
-            $jsondata = file_get_contents($userFile); //get the file contents - already saved in JSON Format
-            $allUsers = json_decode($jsondata,true); //Convert to array
-        } else {
-            return "Sorry, we are unable to generate users this time!";
-        }
 
-        $pulledUsers = [];
-        $i = 1;
-        if ($this->totalUser){
-            while($i <= $this->totalUser){
-                $index = rand(0,count($allUsers)-1); //Randomly select a key
-                if(!in_array(trim($allUsers[$index]),$pulledUsers)){ //Make sure that the user is not already picked
-                    $pulledUsers[$i] = trim($allUsers[$index]);
-                    $i++;
-                } //End of inner IF
-            } //End of WHILE loop
-        } //End of outer IF
+    public function generateUsers(){
+        $pulledNames = $this->generateData($this->userFileName, $this->totalUser);
+        $pulledLocations = $this->generateData($this->locationFileName, $this->totalUser);
+        $pulledProfiles = $this->generateData($this->profileFileName, $this->totalUser);
+
+        for($i = 0; $i < $this->totalUser; $i++){
+            $userDOB = date('d/m/Y', mktime(0, 0, 0, rand(1,12), rand(0,28), date("Y")-rand(18,60)));
+            $userName = $pulledNames[$i];
+            $userLocation = $pulledLocations[$i];
+            $userProfile = $pulledProfiles[$i];
+            $user =[$userName, $userDOB, $userLocation, $userProfile];
+            $pulledUsers[$i] =$user;
+        }
         return $pulledUsers;
     } //End of generateUser Function
+
+    private function generateData($dataFile, $totalRows){
+        $pulledData = [];
+        if (file_exists($dataFile)) { //Double checking if the file exists
+            $jsondata = file_get_contents($dataFile); //get the file contents - already saved in JSON Format
+            $allRows = json_decode($jsondata,true); //Convert to array
+        } else {
+            return $pulledData["No Data Generated!"];
+        }
+
+        $i = 0;
+        while($i <= $totalRows){
+            $index = rand(1,count($allRows)); //Randomly select a key
+            if(!in_array(trim($allRows[$index]),$pulledData)){ //Make sure that the user is not already picked
+                $pulledData[$i] = trim($allRows[$index]);
+                $i++;
+            } //End of inner IF
+        } //End of WHILE loop
+        return $pulledData;
+    } //End of generateData() function
 }
