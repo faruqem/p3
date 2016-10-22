@@ -9,7 +9,7 @@ use App\Http\Requests;
 use App\Utilities\PasswordGenerator;
 use App\Utilities\UserGenerator;
 use App\Utilities\ChmodPermissionGenerator;
-
+use App\Utilities\SendEmail;
 
 class PageController extends Controller
 {
@@ -163,5 +163,28 @@ class PageController extends Controller
     public function contact()
     {
         return view('page.contact');
+    }
+
+    public function contactPost(Request $request)
+    {
+        #Validate
+        $this->validate($request, [
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'message' => 'required|string|between:5,500',
+        ]);
+
+        #Retrieve form values
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $message = $request->input('message');
+        $from = 'Developer Best Friends Site';
+        $to = 'faruqem@yahoo.com';
+        $subject = 'Message from Developer Best Friends Site User!';
+
+        $sendMail = new SendEmail($name, $email, $message, $from, $to, $subject);
+        $confMessage = $sendMail->send();
+        //$confMessage = "Your message has been successfully sent. We will be in touch soon.";
+        return \Redirect::to('/contact')->with('svConfMessage',$confMessage);
     }
 }

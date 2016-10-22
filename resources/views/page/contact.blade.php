@@ -17,9 +17,44 @@ such as a page specific stylesheets.
 <!-- Begin page content -->
     <div class="container">
       <div class="page-header">
-        <h1>Contact Page</h1>
+        <h1>Contact Me</h1>
       </div>
-      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <form class="form-horizontal" method="POST" action="/contact">
+            {{ csrf_field() }}
+            <div class="form-group">
+                <label for="name" class="col-sm-2 control-label">Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="name" name="name" value="{{ old("name") }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email" class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="email" name="email" value="{{ old("email") }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="message" class="col-sm-2 control-label">Message</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" rows="4" name="message" value="{{ old('message') }}"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-2">
+                    <input id="submit" name="submit" type="submit" value="Send Message" class="btn btn-default">
+                </div>
+            </div>
+            @if(count($errors) > 0)
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            @endif
+            @if(session('svConfMessage'))
+                <h4 class="text-primary">{{session('svConfMessage')}}</h4>
+            @endif
+        </form>
     </div>
 @endsection
 

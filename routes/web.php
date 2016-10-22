@@ -33,3 +33,4 @@ Route::post('/permission-calculator', 'PageController@permissionCalculatorPost')
 
 //Contact page
 Route::get('/contact', 'PageController@contact')->name('page.contact');
+Route::post('/contact', 'PageController@contactPost')->name('page.contactPost');
