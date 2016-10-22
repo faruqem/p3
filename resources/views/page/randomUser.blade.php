@@ -27,17 +27,17 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <label><input type="checkbox" name="dob" value="{{ old('dob') }}"> Date of Birth</label>
+                            <label><input type="checkbox" name="includeDOB" value="{{ old('dob') }}"> Date of Birth</label>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <label><input type="checkbox" name="location" value="{{ old('location') }}"> Location</label>
+                            <label><input type="checkbox" name="includeLocation" value="{{ old('location') }}"> Location</label>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <label><input type="checkbox" name="profile" value="{{ old('profile') }}"> Profile</label>
+                            <label><input type="checkbox" name="includeProfile" value="{{ old('profile') }}"> Profile</label>
                         </div>
                     </div>
                     <div class="form-group">
@@ -54,15 +54,15 @@
                     @endif
                     <hr>
 
-                    @if(session('users'))
+                    @if(session('svUsers'))
                         <h4>Generated Users:</h4>
-                        @foreach(unserialize(session('users')) as $user)
-                                <p>Name: {{$user[0]}}
-                                    @if(session('isDOB'))<br>DOB: {{$user[1]}}@endif
-                                    @if(session('isLocation'))<br>Location: {{$user[2]}}@endif
-                                    @if(session('isProfile'))<br>Profile: {{$user[3]}}@endif
-                                </p>
-                                <br>
+                        @foreach(unserialize(session('svUsers')) as $user)
+                            <p>Name: {{$user[0]}}
+                                @if(session('svIncludeDOB'))<br>DOB: {{$user[1]}}@endif
+                                @if(session('svIncludeLocation'))<br>Location: {{$user[2]}}@endif
+                                @if(session('svIncludeProfile'))<br>Profile: {{$user[3]}}@endif
+                            </p>
+                            <br>
                         @endforeach
                         <br>
                     @endif

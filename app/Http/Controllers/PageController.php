@@ -8,6 +8,7 @@ use App\Http\Requests;
 
 use App\Utilities\PasswordGenerator;
 use App\Utilities\UserGenerator;
+use App\Utilities\ChmodPermissionGenerator;
 
 
 class PageController extends Controller
@@ -61,18 +62,18 @@ class PageController extends Controller
         #Validate
         $this->validate($request, [
             'totalUser' => 'required|numeric|min:1|max:75',
-            'dob' => 'boolean',
-            'location' => 'boolean',
-            'profile' => 'boolean'
+            'includeDOB' => 'boolean',
+            'includeLocation' => 'boolean',
+            'includeProfile' => 'boolean'
         ]);
 
         #Retrieve form values
         $totalUser = $request->input('totalUser');
-        $dob = ($request->input("dob") === "" ? true : false);
-        $location = ($request->input('location') === "" ? true : false);
-        $profile = ($request->input('profile') === "" ? true : false);
+        $includeDOB = ($request->input('includeDOB') === "" ? true : false);
+        $includeLocation = ($request->input('includeLocation') === "" ? true : false);
+        $includeProfile = ($request->input('includeProfile') === "" ? true : false);
 
-        $userGen = new UserGenerator($totalUser,$dob,$location,$profile);
+        $userGen = new UserGenerator($totalUser,$includeDOB,$includeLocation,$includeProfile);
         $userGen->setUserFileName('../storage/app/faruqe/names.json');
         $userGen->setLocationFileName('../storage/app/faruqe/locations.json');
         $userGen->setProfileFileName('../storage/app/faruqe/quotes.json');
@@ -81,7 +82,7 @@ class PageController extends Controller
         $users = $userGen->generateUsers();
         //$users = [["Mo Faruqe","Toronto"],["Ru Haque","NYC"]];
         //dd($users);
-        return \Redirect::to('/random-user')->with(['users'=>serialize($users), 'isDOB'=>$dob, 'isLocation'=>$location, 'isProfile'=>$profile]);
+        return \Redirect::to('/random-user')->with(['svUsers'=>serialize($users), 'svIncludeDOB'=>$includeDOB, 'svIncludeLocation'=>$includeLocation, 'svIncludeProfile'=>$includeProfile]);
         //return view('page.randomUser');
     }
 
@@ -121,6 +122,42 @@ class PageController extends Controller
     public function permissionCalculator()
     {
         return view('page.permissionCalculator');
+    }
+
+    public function permissionCalculatorPost(Request $request)
+    {
+        #Validate
+        $this->validate($request, [
+            'permissionReadOwner' => 'boolean',
+            'permissionReadGroup' => 'boolean',
+            'permissionReadOther' => 'boolean',
+            'permissionWriteOwner' => 'boolean',
+            'permissionWriteGroup' => 'boolean',
+            'permissionWriteOther' => 'boolean',
+            'permissionExecuteOwner' => 'boolean',
+            'permissionExecuteGroup' => 'boolean',
+            'permissionExecuteOther' => 'boolean'
+        ]);
+
+        #Retrieve form values
+        $permReadOwner = ($request->input('permissionReadOwner') === "" ? true : false);
+        $permReadGroup = ($request->input('permissionReadGroup') === "" ? true : false);
+        $permReadOther = ($request->input('permissionReadOther') === "" ? true : false);
+        $permWriteOwner = ($request->input('permissionWriteOwner') === "" ? true : false);
+        $permWriteGroup = ($request->input('permissionWriteGroup') === "" ? true : false);
+        $permWriteOther = ($request->input('permissionWriteOther') === "" ? true : false);
+        $permExecuteOwner = ($request->input('permissionExecuteOwner') === "" ? true : false);
+        $permExecuteGroup = ($request->input('permissionExecuteGroup') === "" ? true : false);
+        $permExecuteOther = ($request->input('permissionExecuteOther') === "" ? true : false);
+        //dd($permReadOwner);
+
+        $permGen = new ChmodPermissionGenerator($permReadOwner, $permReadGroup, $permReadOther,
+                                                $permWriteOwner, $permWriteGroup, $permWriteOther,
+                                                $permExecuteOwner, $permExecuteGroup, $permExecuteOther);
+        $calPerms = $permGen->calculatePermission();
+        //dd($calPerms);
+        //return view('page.permissionCalculator');
+        return \Redirect::to('/permission-calculator')->with('svCalPerms',serialize($calPerms));
     }
 
     public function contact()

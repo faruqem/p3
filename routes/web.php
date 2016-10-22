@@ -29,7 +29,7 @@ Route::post('/random-password', 'PageController@randomPasswordPost')->name('page
 
 //Permission generator page
 Route::get('/permission-calculator', 'PageController@permissionCalculator')->name('page.permissionCalculator');
-Route::post('/permission-calculator', 'PageController@permissionCalculator')->name('page.permissionCalculator');
+Route::post('/permission-calculator', 'PageController@permissionCalculatorPost')->name('page.permissionCalculatorPost');
 
 //Contact page
 Route::get('/contact', 'PageController@contact')->name('page.contact');
