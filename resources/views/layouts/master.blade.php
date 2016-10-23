@@ -34,12 +34,12 @@
                   <ul class="nav navbar-nav">
                     <li class="active"><a href="/">Home</a></li>
                     <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Developer's Tool <span class="caret"></span></a>
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tools<span class="caret"></span></a>
                       <ul class="dropdown-menu">
                         <li><a href="/lorem-ipsum">Lorem Ipsum Generator</a></li>
                         <li><a href="/random-user">Random Users Generator</a></li>
                         <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">Extra</li>
+                        <li class="dropdown-header"></li>
                         <li><a href="/random-password">Random Password Generator</a></li>
                         <li><a href="/permission-calculator">Permissions Calculator</a></li>
                       </ul>

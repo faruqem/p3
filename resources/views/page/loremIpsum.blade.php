@@ -32,6 +32,7 @@
         </form>
         <br><br>
         @if(session('paragraphs'))
+            <h4>Generated Lorem Ipsum Text:</h4>
             @foreach(unserialize(session('paragraphs')) as $para)
                 <p>{{$para}}</p>
             @endforeach

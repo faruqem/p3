@@ -57,10 +57,10 @@
                     @if(session('svUsers'))
                         <h4>Generated Users:</h4>
                         @foreach(unserialize(session('svUsers')) as $user)
-                            <p>Name: {{$user[0]}}
-                                @if(session('svIncludeDOB'))<br>DOB: {{$user[1]}}@endif
-                                @if(session('svIncludeLocation'))<br>Location: {{$user[2]}}@endif
-                                @if(session('svIncludeProfile'))<br>Profile: {{$user[3]}}@endif
+                            <p><strong>{{$user[0]}}</strong>
+                                @if(session('svIncludeDOB'))<br>{{$user[1]}}@endif
+                                @if(session('svIncludeLocation'))<br>{{$user[2]}}@endif
+                                @if(session('svIncludeProfile'))<br>{{$user[3]}}@endif
                             </p>
                             <br>
                         @endforeach

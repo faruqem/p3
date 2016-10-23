@@ -14,15 +14,20 @@
 @section('content')
 <!-- Begin page content -->
     <div class="container">
+        <div class="jumbotron">
+            <h1>Developer's Best Friend</h1>
+            <p>This site provides tools that helps a developer to generate random lorem ipsum text, random users with names and other data, xkcd style random password and chmod permission values.</p>
+            <p>Click on the link of any tools shown below or from the Tools dropdown menu from the top menu bar.</p>
+        </div>
         <div class="row">
             <div class="col-md-6">
                 <h2>Lorem Ipsum Generator</h2>
-                <p>Lorem Ipsum is simply dummy text to setup the layout of a website as a reader may get distracted by the readable content of a page when looking at its layout. You can use this tool to generate 1 to 99 paragarphs of Lorem Ipsum text.</p>
+                <p><a href="http://lipsum.com/">Lorem Ipsum</a> is simply dummy text to setup the layout of a website as a reader may get distracted by the readable content of a page when looking at its layout. You can use this tool to generate 1 to 99 paragarphs of Lorem Ipsum text.</p>
                 <p><a class="btn btn-default" href="/lorem-ipsum" role="button">Lorem Ipsum Generator &raquo;</a></p>
             </div>
             <div class="col-md-6">
                 <h2>Random Users Generator</h2>
-                <p>This tool will give you 1 to 75 of randomly generated dummy user names along with the options to generate their date of birth, location and short profile blurb, that you can use as test data for any of your applications.</p>
+                <p>This tool will give you 1 to 75 randomly generated dummy user names along with the options to generate their date of birth, location and short profile blurb, that you can use as test data for any of your applications.</p>
                 <p><a class="btn btn-default" href="/random-user" role="button">Random Users Generator &raquo;</a></p>
             </div>
         </div>
