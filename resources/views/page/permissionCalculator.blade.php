@@ -25,14 +25,14 @@ such as a page specific stylesheets.
                 <thead>
                     <tr>
                         <th></th>
-                        <th><h4><span class="label label-success">Owner</span></h4></th>
-                        <th><h4><span class="label label-success">Group</span></h4></th>
-                        <th><h4><span class="label label-success">Other</span></h4></th>
+                        <th><h4><span class="label label-primary">Owner</span></h4></th>
+                        <th><h4><span class="label label-primary">Group</span></h4></th>
+                        <th><h4><span class="label label-primary">Other</span></h4></th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
-                        <th>Permission:</th>
+                        <th>Permission Value:</th>
                         <th>
                             @if(session('svCalPerms'))
                                 {{unserialize(session('svCalPerms'))["ownerPermission"]}}
@@ -45,14 +45,14 @@ such as a page specific stylesheets.
                         </th>
                         <th>
                             @if(session('svCalPerms'))
-                                {{unserialize(session('svCalPerms'))["otherPermission"]}} 
+                                {{unserialize(session('svCalPerms'))["otherPermission"]}}
                             @endif
                         </th>
                     </tr>
                 </tfoot>
                 <tbody>
                     <tr>
-                        <td><h4><span class="label label-success">Read (4)</span></h4></td>
+                        <td><h4><span class="label label-primary">Read (4)</span></h4></td>
                         <td>
                             <div class="checkbox">
                                 <label><input type="checkbox" name="permissionReadOwner" value=""></label>
@@ -70,7 +70,7 @@ such as a page specific stylesheets.
                         </td>
                     </tr>
                     <tr>
-                        <td><h4><span class="label label-success">Write (2)</span></h4></td>
+                        <td><h4><span class="label label-primary">Write (2)</span></h4></td>
                         <td>
                             <div class="checkbox">
                                 <label><input type="checkbox" name="permissionWriteOwner" value=""></label>
@@ -88,7 +88,7 @@ such as a page specific stylesheets.
                         </td>
                     </tr>
                     <tr>
-                        <td><h4><span class="label label-success">Execute (1)</span></h4></td>
+                        <td><h4><span class="label label-primary">Execute (1)</span></h4></td>
                         <td>
                             <div class="checkbox">
                                 <label><input type="checkbox" name="permissionExecuteOwner" value=""></label>

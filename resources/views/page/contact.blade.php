@@ -22,19 +22,19 @@ such as a page specific stylesheets.
         <form class="form-horizontal" method="POST" action="/contact">
             {{ csrf_field() }}
             <div class="form-group">
-                <label for="name" class="col-sm-2 control-label">Name</label>
+                <label for="name" class="col-sm-2 control-label">Your Name: </label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="name" name="name" value="{{ old("name") }}">
                 </div>
             </div>
             <div class="form-group">
-                <label for="email" class="col-sm-2 control-label">Email</label>
+                <label for="email" class="col-sm-2 control-label">Your Email: </label>
                 <div class="col-sm-10">
                     <input type="email" class="form-control" id="email" name="email" value="{{ old("email") }}">
                 </div>
             </div>
             <div class="form-group">
-                <label for="message" class="col-sm-2 control-label">Message</label>
+                <label for="message" class="col-sm-2 control-label">Your Message: </label>
                 <div class="col-sm-10">
                     <textarea class="form-control" rows="4" name="message" value="{{ old('message') }}"></textarea>
                 </div>

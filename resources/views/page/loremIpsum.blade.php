@@ -21,7 +21,7 @@
         <form method='POST' action='/lorem-ipsum'>
             {{ csrf_field() }}
             Total Paragraph (1 to 99): <input type='text' name='totalPara' value='{{ old("totalPara") }}'>
-            <input type='submit' value='Generate Lorem Ipsum'>
+            <input type='submit' value='Generate Lorem Ipsum' class="btn btn-default">
             @if(count($errors) > 0)
                 <ul>
                     @foreach($errors->all() as $error)
