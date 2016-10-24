@@ -51,7 +51,7 @@ class SendEmail {
 
     public function send() {
         $this->headers =  "MIME-Version: 1.0" . "\r\n";
-        $this->headers .= "From: <faruqem@yahoo.com>" . "\r\n";
+        $this->headers .= "From: <faruqe@gmail.com>" . "\r\n";
         $this->headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
         //return 'Your message has been sent successfully. We will be in touch soon.';
         $confMsg="";
