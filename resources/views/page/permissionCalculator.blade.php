@@ -32,24 +32,24 @@ such as a page specific stylesheets.
                 </thead>
                 <tfoot>
                     <tr>
-                        <th><h4 class="text-success">Calculated permission values:<h4>
+                        <th><h4>Calculated permission values:<h4>
                         </th>
                         <th>
-                            <h4 class="text-success">
+                            <h4>
                                 @if(session('svCalPerms'))
                                     {{unserialize(session('svCalPerms'))["ownerPermission"]}}
                                 @endif
                             </h4>
                         </th>
                         <th>
-                            <h4 class="text-success">
+                            <h4>
                                 @if(session('svCalPerms'))
                                     {{unserialize(session('svCalPerms'))["groupPermission"]}}
                                 @endif
                             </h4>
                         </th>
                         <th>
-                            <h4 class="text-success">
+                            <h4>
                                 @if(session('svCalPerms'))
                                     {{unserialize(session('svCalPerms'))["otherPermission"]}}
                                 @endif
@@ -57,7 +57,7 @@ such as a page specific stylesheets.
                         </th>
                     </tr>
                     <tr>
-                        <th><h4 class="text-success">Your command using octal notation: </h4></th>
+                        <th><h4>Your command using octal notation: </h4></th>
                         <th colspan="3">
                             @if(session('svCalPerms'))
                                 <pre>chmod {{unserialize(session('svCalPerms'))["ownerPermission"]}}{{unserialize(session('svCalPerms'))["groupPermission"]}}{{unserialize(session('svCalPerms'))["otherPermission"]}} myfile</pre>
@@ -123,6 +123,13 @@ such as a page specific stylesheets.
                 </tbody>
             </table>
             <button type="submit" class="btn btn-default">Calculate Permission</button>
+            @if(count($errors) > 0)
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li class="text-danger"><strong>{{ $error }}</strong></li>
+                    @endforeach
+                </ul>
+            @endif
         </form>
         <br><br>
     </div>

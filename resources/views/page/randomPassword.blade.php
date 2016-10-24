@@ -98,13 +98,13 @@ Password Generator
                     @if(count($errors) > 0)
                         <ul>
                             @foreach($errors->all() as $error)
-                                <li>{{ $error }}</li>
+                                <li class="text-danger"><strong>{{ $error }}</strong></li>
                             @endforeach
                         </ul>
                     @endif
                     <hr>
                     @if(session('password'))
-                            <h3><strong>Your Password: </strong><span class="lead">{{session('password')}}</span></h3>
+                            <h4><strong>Your Password: </strong><span class="lead">{{session('password')}}</span></h4>
                         <br>
                     @endif
                 </form>
