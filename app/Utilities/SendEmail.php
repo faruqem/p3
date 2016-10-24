@@ -53,7 +53,7 @@ class SendEmail {
         $this->headers =  "MIME-Version: 1.0" . "\r\n";
         $this->headers .= "From: <faruqem@yahoo.com>" . "\r\n";
         $this->headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-        //return 'Your message has been sent successfully. We will be in touch soon.';
+        return 'Your message has been sent successfully. We will be in touch soon.';
         if (mail ($this->to, $this->subject, $this->message, $this->from, $this->headers)) {
 	        $confMsg='Your message has been sent successfully. We will be in touch soon.';
         } else {
