@@ -23,14 +23,14 @@ This utility helps a user calculate the numeric (octal) value for a set of file 
 
 
 ##Outside Resources:
-[badcow/lorem-ipsum](https://packagist.org/packages/badcow/lorem-ipsum) for Lorem Ipsum Generator.
-[Bootstrap](http://getbootstrap.com/) CSS and JavaScript Framework
-[Bootsrap theme](https://www.bootstrapcdn.com/bootswatch/)
-[Paul and Bernice Noll Website](http://www.paulnoll.com) for words to be used for Random Password Generator.
-[100 Motivational Quotes](http://www.huffingtonpost.com/lolly-daskal-/100-motivational-quotes-t_b_4505356.html) to be used a s random profile for Random Users Generator.
+* [badcow/lorem-ipsum](https://packagist.org/packages/badcow/lorem-ipsum) for Lorem Ipsum Generator.
+* [Bootstrap](http://getbootstrap.com/) CSS and JavaScript Framework
+* [Bootsrap theme](https://www.bootstrapcdn.com/bootswatch/)
+* [Paul and Bernice Noll Website](http://www.paulnoll.com) for words to be used for Random Password Generator.
+* [100 Motivational Quotes](http://www.huffingtonpost.com/lolly-daskal-/100-motivational-quotes-t_b_4505356.html) to be used a s random profile for Random Users Generator.
 
 ##Note for the Grader
-#My class files:
+###My class files:
 Folder: app/utilities
 Files:
 1. UserGenerator.php for Random Users Generator page.
@@ -39,7 +39,7 @@ Files:
 4. SendEmail.php for Contact page.
 5. I used badcow/lorem-ipsum external package for Lorem Ipsum Generator page.
 
-#My data files:
+###My data files:
 Folder: storgae/app/faruqe
 Files:
 1. names.json for Random Users Generator's user names.
@@ -47,7 +47,7 @@ Files:
 3. quotes.json for Random Users Generator's user profiles.
 4. words.josn for for Random Password Generator page.
 
-#Other notes:
+###Other notes:
 1. I converted my Random Password Generator P2 project to object oriented code and integrated in P3 using Laravel as an additional tool.
 2. Though it was not a requirement, I am returning the result set to the same page. I figured how to do it and thought it would give a user better UX.
 3. For all my logic code, where I haven't used an external file, I created a class file instead of putting the logic directly into the controller.
