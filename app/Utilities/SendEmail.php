@@ -1,6 +1,6 @@
 <?php
-ini_set('display_errors', 1); error_reporting(-1);
 namespace App\Utilities;
+ini_set('display_errors', 1); error_reporting(-1);
 
 class SendEmail {
     private $name;
