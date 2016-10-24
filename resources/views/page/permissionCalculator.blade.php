@@ -32,23 +32,38 @@ such as a page specific stylesheets.
                 </thead>
                 <tfoot>
                     <tr>
-                        <th>Permission Value:</th>
-                        <th>
-                            @if(session('svCalPerms'))
-                                {{unserialize(session('svCalPerms'))["ownerPermission"]}}
-                            @endif
+                        <th><h4 class="text-success">Calculated Permission Values:<h4>
                         </th>
                         <th>
-                            @if(session('svCalPerms'))
-                                {{unserialize(session('svCalPerms'))["groupPermission"]}}
-                            @endif
+                            <h4 class="text-success">
+                                @if(session('svCalPerms'))
+                                    {{unserialize(session('svCalPerms'))["ownerPermission"]}}
+                                @endif
+                            </h4>
                         </th>
                         <th>
-                            @if(session('svCalPerms'))
-                                {{unserialize(session('svCalPerms'))["otherPermission"]}}
-                            @endif
+                            <h4 class="text-success">
+                                @if(session('svCalPerms'))
+                                    {{unserialize(session('svCalPerms'))["groupPermission"]}}
+                                @endif
+                            </h4>
+                        </th>
+                        <th>
+                            <h4 class="text-success">
+                                @if(session('svCalPerms'))
+                                    {{unserialize(session('svCalPerms'))["otherPermission"]}}
+                                @endif
+                            </h4>
                         </th>
                     </tr>
+                    <tr>
+                        <th><h4 class="text-success">Your command using octal notation: </h4></th>
+                        <th colspan="3">
+                            @if(session('svCalPerms'))
+                                <pre>chmod {{unserialize(session('svCalPerms'))["ownerPermission"]}}{{unserialize(session('svCalPerms'))["groupPermission"]}}{{unserialize(session('svCalPerms'))["otherPermission"]}} myfile</pre>
+                            @endif
+                        </th>
+                    <tr>
                 </tfoot>
                 <tbody>
                     <tr>

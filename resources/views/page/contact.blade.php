@@ -52,7 +52,7 @@ such as a page specific stylesheets.
                 </ul>
             @endif
             @if(session('svConfMessage'))
-                <h4 class="text-primary">{{session('svConfMessage')}}</h4>
+                <h4 class="text-success">{{session('svConfMessage')}}</h4>
             @endif
         </form>
     </div>
