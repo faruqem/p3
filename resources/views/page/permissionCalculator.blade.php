@@ -32,7 +32,7 @@ such as a page specific stylesheets.
                 </thead>
                 <tfoot>
                     <tr>
-                        <th><h4 class="text-success">Calculated Permission Values:<h4>
+                        <th><h4 class="text-success">Calculated permission values:<h4>
                         </th>
                         <th>
                             <h4 class="text-success">
