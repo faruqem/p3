@@ -4,7 +4,7 @@
 [Developer's Best Friend](http://p3.guddi.ca)
 
 ##Demo:
-[Developer's Best Friend Site Demo](Not yet ready!)
+[Developer's Best Friend Site Demo](http://screencast.com/t/ZFpQk9v8Q)
 
 ##Description:
 This site provides tools to generate random lorem ipsum text, random users with names & other data, xkcd style random password and chmod permission values.
@@ -31,8 +31,7 @@ This utility helps a user calculate the numeric (octal) value for a set of file 
 
 ##Note for the Grader
 ###My class files:
-Folder: app/utilities
-Files:
+Folder: app/utilities and files in this folder:
 * UserGenerator.php for Random Users Generator page.
 * PasswordGenerator.php for Random Password Generator page.
 * ChmodPermissionGenerator.php for Permissions Calculator page.
@@ -40,17 +39,17 @@ Files:
 * I used badcow/lorem-ipsum external package for Lorem Ipsum Generator page.
 
 ###My data files:
-Folder: storgae/app/faruqe
-Files:
+Folder: storgae/app/faruqe and files in this folder:
 * names.json for Random Users Generator's user names.
 * locations.json for Random Users Generator's user locations.
 * quotes.json for Random Users Generator's user profiles.
 * words.josn for for Random Password Generator page.
 
 ###Other notes:
-* I converted my Random Password Generator P2 project to object oriented code and integrated in P3 using Laravel as an additional tool.
-* Though it was not a requirement, I am returning the result set to the same page. I figured how to do it and thought it would give a user better UX.
-* For all my logic code, where I haven't used an external file, I created a class file instead of putting the logic directly into the controller.
-* I used the blade old() value function to retrieve and display the old value upon a failed form validation. Anyway, it did not work very well for the bootstrap checkboxes though it worked for all the text inputs.
-* I did not implement any mail setup to test out the contact form outgoing mail. But all other functionalities (field validation, success/fail message etc.) are there and it's ready to go upon setting up a mail server.
-* I tested my app in IE 11, Google Chrome and FireFox successfully. Piazza discussion mentioned to test it at least in two browsers.
+* I used the badcow Lorem-Ipsum external package to fulfill the requirement of "You must research and implement at least one external package." For all other tools I created my own classes and other functionalities.
+* As an extra I provided two additional tools and additional page - Random Password Generator - converted from my P2 project in object oriented style, Chmod Permission Calculator and a Contact Me page.
+* Though it was not a requirement, I returned the result set to the same page. I figured how to do it and thought it would give a user better UX.
+* For all my logic code, where I haven't used an external file i.e. except Lorem Ipsum Generator, I created a class for each of my tools instead of putting the logic code directly into the controller.
+* I used the blade old() value function to retrieve and display the old value upon a failed form validation. It worked very well for all the text boxes but not so for the bootstrap checkboxes. Anyway, it was not a requirement for this project. I did it as an extra.
+* I set up SendMail in Digital Ocean to test my Contact Me page. It worked but in Digital Ocean it was extremely slow for some reason that's why I disabled the actual send mail part though other functionalities (field validation, success/fail message etc.) of the page are kept intact and it's ready to go upon setting up a new mailing option.
+* I tested my app in IE 11, Google Chrome and FireFox successfully. Piazza discussion mentioned to test it in at least two browsers.
