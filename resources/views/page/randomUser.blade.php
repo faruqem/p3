@@ -27,17 +27,17 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <label><input type="checkbox" name="includeDOB" value="{{ old('dob') }}"> Date of Birth</label>
+                            <label><input type="checkbox" name="includeDOB"  value="{{ old('includeDOB') }}"> Date of Birth</label>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <label><input type="checkbox" name="includeLocation" value="{{ old('location') }}"> Location</label>
+                            <label><input type="checkbox" name="includeLocation" value="{{ old('includeLocation') }}"> Location</label>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <label><input type="checkbox" name="includeProfile" value="{{ old('profile') }}"> Profile</label>
+                            <label><input type="checkbox" name="includeProfile" value="{{ old('includeProfile') }}"> Profile</label>
                         </div>
                     </div>
                     <div class="form-group">
@@ -46,14 +46,10 @@
                         </div>
                     </div>
                     @if(count($errors) > 0)
-                        <ul>
-                            @foreach($errors->all() as $error)
-                                <li class="text-danger"><strong>{{ $error }}</strong></li>
-                            @endforeach
-                        </ul>
+                        @foreach($errors->all() as $error)
+                            <h4 class="text-danger"><strong>{{ $error }}</strong></h4>
+                        @endforeach
                     @endif
-                    <hr>
-
                     @if(session('svUsers'))
                         <h4>Generated Users:</h4>
                         @foreach(unserialize(session('svUsers')) as $user)

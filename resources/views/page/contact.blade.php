@@ -45,11 +45,9 @@ such as a page specific stylesheets.
                 </div>
             </div>
             @if(count($errors) > 0)
-                <ul>
-                    @foreach($errors->all() as $error)
-                        <li class="text-danger"><strong>{{ $error }}</strong></li>
-                    @endforeach
-                </ul>
+                @foreach($errors->all() as $error)
+                    <h4 class="text-danger"><strong>{{ $error }}</strong></h4>
+                @endforeach
             @endif
             @if(session('svConfMessage'))
                 <h4 class="text-success">{{session('svConfMessage')}}</h4>

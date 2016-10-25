@@ -23,11 +23,9 @@
             Total Paragraph (1 to 99): <input type='text' name='totalPara' value='{{ old("totalPara") }}'>
             <input type='submit' value='Generate Lorem Ipsum' class="btn btn-default">
             @if(count($errors) > 0)
-                <ul>
-                    @foreach($errors->all() as $error)
-                        <li class="text-danger"><strong>{{ $error }}</strong></li>
-                    @endforeach
-                </ul>
+                @foreach($errors->all() as $error)
+                    <h4 class="text-danger"><strong>{{ $error }}</strong></h4>
+                @endforeach
             @endif
         </form>
         <br><br>

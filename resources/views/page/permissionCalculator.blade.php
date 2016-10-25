@@ -124,11 +124,9 @@ such as a page specific stylesheets.
             </table>
             <button type="submit" class="btn btn-default">Calculate Permission</button>
             @if(count($errors) > 0)
-                <ul>
-                    @foreach($errors->all() as $error)
-                        <li class="text-danger"><strong>{{ $error }}</strong></li>
-                    @endforeach
-                </ul>
+                @foreach($errors->all() as $error)
+                    <h4 class="text-danger"><strong>{{ $error }}</strong></h4>
+                @endforeach
             @endif
         </form>
         <br><br>

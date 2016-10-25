@@ -13,50 +13,50 @@ use App\Utilities\SendEmail;
 
 class PageController extends Controller
 {
+    #Home page
+    #---------
+    #Show the page
     public function home()
     {
         return view('page.home');
     }
+    #End of Home Page
 
+
+    #Lorem ipsum page
+    #----------------
+    #Show the page
     public function loremIpsum()
     {
         return view('page.loremIpsum');
     }
 
+    #Post the page
     public function loremIpsumPost(Request $request){
         # Validate
         $this->validate($request, [
-            #'totalPara' => 'required|min:3|alpha_num',
             'totalPara' => 'required|numeric|min:1|max:99',
         ]);
-
-        # If there were errors, Laravel will redirect the
-        # user back to the page that submitted this request
-
-        # If there were NO errors, the script will continue...
 
         # Get the data from the form
         $totalPara = $request->input('totalPara'); # Option 2) USE THIS ONE! :)
         $generator = new \Badcow\LoremIpsum\Generator();
         $paragraphs = $generator->getParagraphs((int)$totalPara);
-        # Here's where your code for what happens next should go.
-        # Examples:
-        # Save book in the database
-        //$paragraphs1 = $paragraphs[1];
-        # When done - what should happen?
-        # You can return a String (not ideal), or a View, or Redirect to some other page:
-        return \Redirect::to('/lorem-ipsum')->with('paragraphs',serialize($paragraphs));
-        #return view('page.loremIpsum');
-        #return $paragraphs[1];
-        # FYI: There's also a Laravel helper that could shorten the above line to this:
-        # return redirect('/books/create');
-    }
 
+        return \Redirect::to('/lorem-ipsum')->with('paragraphs',serialize($paragraphs));
+    }
+    #End of Lorem Ipsum page
+
+
+    #Random Users Generator page
+    #---------------------------
+    #Show the page
     public function randomUser()
     {
         return view('page.randomUser');
     }
 
+    #Post the page
     public function randomUserPost(Request $request)
     {
         #Validate
@@ -73,24 +73,28 @@ class PageController extends Controller
         $includeLocation = ($request->input('includeLocation') === "" ? true : false);
         $includeProfile = ($request->input('includeProfile') === "" ? true : false);
 
+        #Call the UserGenerator class to generate users
         $userGen = new UserGenerator($totalUser,$includeDOB,$includeLocation,$includeProfile);
         $userGen->setUserFileName('../storage/app/faruqe/names.json');
         $userGen->setLocationFileName('../storage/app/faruqe/locations.json');
         $userGen->setProfileFileName('../storage/app/faruqe/quotes.json');
 
-
         $users = $userGen->generateUsers();
-        //$users = [["Mo Faruqe","Toronto"],["Ru Haque","NYC"]];
-        //dd($users);
-        return \Redirect::to('/random-user')->with(['svUsers'=>serialize($users), 'svIncludeDOB'=>$includeDOB, 'svIncludeLocation'=>$includeLocation, 'svIncludeProfile'=>$includeProfile]);
-        //return view('page.randomUser');
-    }
 
+        return \Redirect::to('/random-user')->with(['svUsers'=>serialize($users), 'svIncludeDOB'=>$includeDOB, 'svIncludeLocation'=>$includeLocation, 'svIncludeProfile'=>$includeProfile]);
+    }
+    #End of Random Users Generator page
+
+
+    #Random Password Generator page
+    #------------------------------
+    #Show the page
     public function randomPassword()
     {
         return view('page.randomPassword');
     }
 
+    #Post the page
     public function randomPasswordPost(Request $request)
     {
         # Validate
@@ -110,20 +114,26 @@ class PageController extends Controller
         $useSeparator = $request->input('use-separator');
         $wordCase = $request->input('word-case');
 
-        #Instantiate and call appropriate class instance to generate the password
+        #Instantiate and call the PasswordGenerator class instance to generate the password
         $passGen = new PasswordGenerator($totWords, $totSpChars, $totNumbers, $useSeparator, $wordCase);
         $passGen->setWordFileName('../storage/app/faruqe/words.json');
         $password = $passGen->generatePassword();
 
-        #Return the password
+        #Return the password by redirecting to the same page
         return \Redirect::to('/random-password')->with('password',$password);
     }
+    #End of Random Password Generator page
 
+
+    #Permissions Calculator page
+    #--------------------------
+    #Show the page
     public function permissionCalculator()
     {
         return view('page.permissionCalculator');
     }
 
+    #Post the page
     public function permissionCalculatorPost(Request $request)
     {
         #Validate
@@ -149,22 +159,29 @@ class PageController extends Controller
         $permExecuteOwner = ($request->input('permissionExecuteOwner') === "" ? true : false);
         $permExecuteGroup = ($request->input('permissionExecuteGroup') === "" ? true : false);
         $permExecuteOther = ($request->input('permissionExecuteOther') === "" ? true : false);
-        //dd($permReadOwner);
 
+
+        #Instantiate and call the ChmodPermissionGenerator class instance to generate the permissions
         $permGen = new ChmodPermissionGenerator($permReadOwner, $permReadGroup, $permReadOther,
                                                 $permWriteOwner, $permWriteGroup, $permWriteOther,
                                                 $permExecuteOwner, $permExecuteGroup, $permExecuteOther);
         $calPerms = $permGen->calculatePermission();
-        //dd($calPerms);
-        //return view('page.permissionCalculator');
+
+        #Return the permission values by redirecting to the same page
         return \Redirect::to('/permission-calculator')->with('svCalPerms',serialize($calPerms));
     }
+    #End of Permissions Calculator page
 
+
+    #Contact page
+    #------------
+    #Show the page
     public function contact()
     {
         return view('page.contact');
     }
 
+    #Post the page
     public function contactPost(Request $request)
     {
         #Validate
@@ -181,9 +198,12 @@ class PageController extends Controller
         $to = 'faruqem@yahoo.com';
         $subject = 'Message from Developer Best Friends Site';
 
+        #Instantiate and call the SendEmail class instance to send the message
         $sendMail = new SendEmail($name, $userEmail, $message, $to, $subject);
         $confMessage = $sendMail->send();
-        //$confMessage = "Your message has been successfully sent. We will be in touch soon.";
+
+        #Return the send status message by redirecting to the same page
         return \Redirect::to('/contact')->with('svConfMessage',$confMessage);
     }
+    #End of Contact page
 }
