@@ -176,13 +176,12 @@ class PageController extends Controller
 
         #Retrieve form values
         $name = $request->input('name');
-        $email = $request->input('email');
+        $userEmail = $request->input('email');
         $message = $request->input('message');
-        $from = 'Developer Best Friends Site';
         $to = 'faruqem@yahoo.com';
-        $subject = 'Message from Developer Best Friends Site User!';
+        $subject = 'Message from Developer Best Friends Site';
 
-        $sendMail = new SendEmail($name, $email, $message, $from, $to, $subject);
+        $sendMail = new SendEmail($name, $userEmail, $message, $to, $subject);
         $confMessage = $sendMail->send();
         //$confMessage = "Your message has been successfully sent. We will be in touch soon.";
         return \Redirect::to('/contact')->with('svConfMessage',$confMessage);

@@ -1,17 +1,15 @@
 <?php
 namespace App\Utilities;
-ini_set('display_errors', 1); error_reporting(-1);
 
 class SendEmail {
     private $name;
     private $email;
     private $message;
-    private $from;
     private $to;
     private $subject;
     private $headers;
 
-    public function __construct ($namePar, $emailPar, $messagePar, $fromPar, $toPar, $subjectPar)
+    public function __construct ($namePar, $emailPar, $messagePar, $toPar, $subjectPar)
     {
         if(isset($namePar)){
             $this->name = $namePar;
@@ -31,12 +29,6 @@ class SendEmail {
             $this->message = "";
         }
 
-        if(isset($fromPar)){
-            $this->from = $fromPar;
-        } else {
-            $this->from = "Developer Best Friends Site";
-        }
-
         if(isset($toPar)){
             $this->to = $toPar;
         } else {
@@ -51,12 +43,18 @@ class SendEmail {
     }
 
     public function send() {
+        //Set the body
+        $body = "User Name: " . $this->name . "<br>" . "User Email: " . $this->email . "<br>" . "Message: " . $this->message;
+
+        //Set the headers
         $this->headers =  "MIME-Version: 1.0" . "\r\n";
         $this->headers .= "From: <faruqe@gmail.com>" . "\r\n";
         $this->headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
         //return 'Your message has been sent successfully. We will be in touch soon.';
+
         $confMsg="";
-        if (mail ($this->to, $this->subject, $this->message, $this->from, $this->headers)) {
+
+        if (mail ($this->to, $this->subject, $body, $this->headers)) {
 	        $confMsg='Your message has been sent successfully. We will be in touch soon.';
         } else {
 	        $congMsg='Sorry we could not send your message. Please, try again soon';
