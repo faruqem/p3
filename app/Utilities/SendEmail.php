@@ -50,8 +50,12 @@ class SendEmail {
         $this->headers =  "MIME-Version: 1.0" . "\r\n";
         $this->headers .= "From: <faruqe@gmail.com>" . "\r\n";
         $this->headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-        //return 'Your message has been sent successfully. We will be in touch soon.';
 
+        return 'Your message has been sent successfully. We will be in touch soon.';
+
+        # The following works but takes an internity to send a message from digital ocean. That's why I am commenting it out for now.
+        # and sending a dummy message above instead*/
+        /*
         $confMsg="";
 
         if (mail ($this->to, $this->subject, $body, $this->headers)) {
@@ -61,5 +65,6 @@ class SendEmail {
         }
 
         return $confMsg;
+        */
     } //End of send() function
 }
