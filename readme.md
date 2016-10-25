@@ -53,3 +53,4 @@ Folder: storgae/app/faruqe and files in this folder:
 * I used the blade old() value function to retrieve and display the old value upon a failed form validation. It worked very well for all the text boxes but not so for the bootstrap checkboxes. Anyway, it was not a requirement for this project. I did it as an extra.
 * I set up SendMail in Digital Ocean to test my Contact Me page. It worked but in Digital Ocean it was extremely slow for some reason that's why I disabled the actual send mail part though other functionalities (field validation, success/fail message etc.) of the page are kept intact and it's ready to go upon setting up a new mailing option.
 * I tested my app in IE 11, Google Chrome and FireFox successfully. Piazza discussion mentioned to test it in at least two browsers.
+* I checked my site by passing my live URL http://p3.guddi.ca/ to W3C Markup Validation Service and it passed all the validations.
