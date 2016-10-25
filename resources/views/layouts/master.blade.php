@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>
             {{-- Yield the title if it exists, otherwise default to 'Foobooks' --}}
