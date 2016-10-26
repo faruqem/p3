@@ -24,7 +24,7 @@ Password Generator
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="tot-words">Total Words:</label>
                         <div class="col-sm-10">
-                            <select class="form-control" id="tot-words" name="tot-words" value="{{ old('tot-words') }}">
+                            <select class="form-control" id="tot-words" name="tot-words">
                                 <option value = "2">2</option>
                                 <option value = "3">3</option>
                                 <option value = "4">4</option>
@@ -36,7 +36,7 @@ Password Generator
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="tot-sp-chars">Total Sp. Chars. (from !, @, #, $, %, ^, &, *):</label>
                         <div class="col-sm-10">
-                            <select class="form-control" id="tot-sp-chars" name="tot-sp-chars"  value="{{ old('tot-sp-chars') }}">
+                            <select class="form-control" id="tot-sp-chars" name="tot-sp-chars">
                                 <option value="0">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -48,7 +48,7 @@ Password Generator
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="tot-numbers">Total Numbers:</label>
                         <div class="col-sm-10">
-                            <select class="form-control" id="tot-numbers" name="tot-numbers"  value="{{ old('tot-numbers') }}">
+                            <select class="form-control" id="tot-numbers" name="tot-numbers">
                                 <option value="0">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -60,7 +60,7 @@ Password Generator
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="use-separator">Separator:</label>
                         <div class="col-sm-10">
-                            <select class="form-control" id="use-separator" name="use-separator" value="{{ old('use-separator') }}">
+                            <select class="form-control" id="use-separator" name="use-separator">
                                 <option value="-">-</option>
                                 <option value="!">!</option>
                                 <option value="@">@</option>
@@ -78,7 +78,7 @@ Password Generator
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="word-case">Word Case:</label>
                         <div class="col-sm-10">
-                            <select class="form-control" id="word-case" name="word-case" value="{{ old('word-case') }}">
+                            <select class="form-control" id="word-case" name="word-case">
                                 <option value="camel">Camel</option>
                                 <option value="upper">UPPER</option>
                                 <option value="lower">lower</option>
