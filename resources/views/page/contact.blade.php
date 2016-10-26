@@ -36,7 +36,7 @@ such as a page specific stylesheets.
             <div class="form-group">
                 <label for="message" class="col-sm-2 control-label">Your Message: </label>
                 <div class="col-sm-10">
-                    <textarea class="form-control" rows="4" name="message" value="{{ old('message') }}"></textarea>
+                    <textarea class="form-control" rows="4" name="message" id="message"></textarea>
                 </div>
             </div>
             <div class="form-group">

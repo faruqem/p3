@@ -24,38 +24,44 @@ such as a page specific stylesheets.
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th></th>
-                        <th><span class="label label-primary">Owner</span></th>
-                        <th><span class="label label-primary">Group</span></th>
-                        <th><span class="label label-primary">Other</span></th>
+                        <td></td>
+                        <td><h4><span class="label label-primary">Owner</span></h4></td>
+                        <td><h4><span class="label label-primary">Group</span></h4></td>
+                        <td><h4><span class="label label-primary">Other</span></h4></td>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
-                        <th>Calculated permission values:</th>
-                        <th>
-                            @if(session('svCalPerms'))
-                                {{unserialize(session('svCalPerms'))["ownerPermission"]}}
-                            @endif
-                        </th>
-                        <th>
-                            @if(session('svCalPerms'))
-                                {{unserialize(session('svCalPerms'))["groupPermission"]}}
-                            @endif
-                        </th>
-                        <th>
-                            @if(session('svCalPerms'))
-                                {{unserialize(session('svCalPerms'))["otherPermission"]}}
-                            @endif
-                        </th>
+                        <td><h4>Calculated permission values:</h4></td>
+                        <td>
+                            <h4>
+                                @if(session('svCalPerms'))
+                                    {{unserialize(session('svCalPerms'))["ownerPermission"]}}
+                                @endif
+                            </h4>
+                        </td>
+                        <td>
+                            <h4>
+                                @if(session('svCalPerms'))
+                                    {{unserialize(session('svCalPerms'))["groupPermission"]}}
+                                @endif
+                            </h4>
+                        </td>
+                        <td>
+                            <h4>
+                                @if(session('svCalPerms'))
+                                    {{unserialize(session('svCalPerms'))["otherPermission"]}}
+                                @endif
+                            </h4>
+                        </td>
                     </tr>
                     <tr>
-                        <th>Your command using octal notation: </th>
-                        <th colspan="3">
+                        <td><h4>Your command using octal notation: </h4></td>
+                        <td colspan="3">
                             @if(session('svCalPerms'))
                                 <pre>chmod {{unserialize(session('svCalPerms'))["ownerPermission"]}}{{unserialize(session('svCalPerms'))["groupPermission"]}}{{unserialize(session('svCalPerms'))["otherPermission"]}} myfile</pre>
                             @endif
-                        </th>
+                        </td>
                     </tr>
                 </tfoot>
                 <tbody>
