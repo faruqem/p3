@@ -34,25 +34,19 @@ such as a page specific stylesheets.
                     <tr>
                         <td><h4>Calculated permission values:</h4></td>
                         <td>
-                            <h4>
-                                @if(session('svCalPerms'))
-                                    {{unserialize(session('svCalPerms'))["ownerPermission"]}}
-                                @endif
-                            </h4>
+                            @if(session('svCalPerms'))
+                                {{unserialize(session('svCalPerms'))["ownerPermission"]}}
+                            @endif
                         </td>
                         <td>
-                            <h4>
-                                @if(session('svCalPerms'))
-                                    {{unserialize(session('svCalPerms'))["groupPermission"]}}
-                                @endif
-                            </h4>
+                            @if(session('svCalPerms'))
+                                {{unserialize(session('svCalPerms'))["groupPermission"]}}
+                            @endif
                         </td>
                         <td>
-                            <h4>
-                                @if(session('svCalPerms'))
-                                    {{unserialize(session('svCalPerms'))["otherPermission"]}}
-                                @endif
-                            </h4>
+                            @if(session('svCalPerms'))
+                                {{unserialize(session('svCalPerms'))["otherPermission"]}}
+                            @endif
                         </td>
                     </tr>
                     <tr>
