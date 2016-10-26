@@ -46,12 +46,12 @@ Folder: storgae/app/faruqe and files in this folder:
 * words.josn for for Random Password Generator page.
 
 ###Other notes:
-* Since none of the object is resource, that's why I did not follow the resource style route convention and created a single page controller for all the pages.
 * I used the badcow Lorem-Ipsum external package to fulfill the requirement of "You must research and implement at least one external package." For all other tools I created my own classes and other functionalities.
-* As an extra I provided two additional tools and an additional page - Random Password Generator - converted from my P2 project in object oriented style, Chmod Permission Calculator and a Contact Me page.
+* As extras I provided two additional tools and an additional page - Random Password Generator - converted from my P2 project in object oriented style; Chmod Permission Calculator and a Contact Me page.
 * Though it was not a requirement, I returned the result set to the same page. I figured how to do it and thought it would give a user better UX.
 * For all my logic code, where I haven't used an external file i.e. except Lorem Ipsum Generator, I created a class for each of my tools instead of putting the logic code directly into the controller.
 * I used the blade old() value function to retrieve and display the old value upon a failed form validation. It worked very well for all the text boxes but not so for the bootstrap checkboxes. Anyway, it was not a requirement for this project. I did it as an extra.
-* I set up SendMail in Digital Ocean to test my Contact Me page. It worked but in Digital Ocean it was extremely slow for some reason that's why I disabled the actual send mail part though other functionalities (field validation, success/fail message etc.) of the page are kept intact and it's ready to go upon setting up a new mailing option.
+* I set up SendMail in Digital Ocean to test my Contact Me page. It worked but in Digital Ocean it was extremely slow that's why I disabled the actual send mail part though other functionalities (field validation, success/fail message etc.) of the page are kept intact and it's ready to go upon setting up a new mailing option.
 * I tested my app in IE 11, Google Chrome and FireFox successfully. Piazza discussion mentioned to test it in at least two browsers.
-* I checked my site by passing the home and all the child  pages to the W3C Markup Validation Service and it passed all the validations.
+* I checked my site by passing the home and all the child  pages to the W3C Markup Validation Service and they passed all the validations.
+* Since none of the page objects is a resource/data object but just a single page, that's why I did not follow the resource style route convention and created a single page controller for all the pages.
