@@ -14,7 +14,7 @@
 @section('content')
 <!-- Begin page content -->
     <div class="container">
-        <h2>Random Users Generator</h1><hr>
+        <h2>Random Users Generator</h2><hr>
         <div class="row">
             <div class="col-md-12">
                 <form class="form-horizontal" action="/random-user" method="POST">
@@ -22,7 +22,7 @@
                     <div class="form-group row">
                           <label for="totalUser" class="col-sm-2 col-form-label">Total Users (1 to 75):</label>
                           <div class="col-sm-10">
-                            <input class="form-control" type="text" name="totalUser" value="{{ old('totalUser') }}">
+                            <input class="form-control" type="text" name="totalUser" id="totalUser" value="{{ old('totalUser') }}">
                           </div>
                     </div>
                     <div class="form-group">

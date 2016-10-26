@@ -17,7 +17,7 @@ such as a page specific stylesheets.
 <!-- Begin page content -->
     <div class="container">
       <div class="page-header">
-        <h1>Contact Me</h1>
+        <h2>Contact Me</h2>
       </div>
         <form class="form-horizontal" method="POST" action="/contact">
             {{ csrf_field() }}

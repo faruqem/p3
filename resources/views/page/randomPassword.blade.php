@@ -16,7 +16,7 @@ Password Generator
 @section('content')
     <!-- Begin page content -->
     <div class="container">
-        <h2>Random Password Generator</h1><hr>
+        <h2>Random Password Generator</h2><hr>
         <div class="row">
             <div class="col-md-12">
                 <form class="form-horizontal" action="/random-password" method="POST">
